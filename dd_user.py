@@ -22,7 +22,7 @@ class UserHandler:
 
         # add table rows
         users_db_con.add_new_user_row(row=(user_id, username, password))
-        users_db_con.add_new_saved_row(row=(user_id, json.dumps(["a", "b"])))
+        users_db_con.add_new_saved_row(row=(user_id, json.dumps(['ChIJN1t_tDeuEmsRUsoyG83frY4'])))
         users_db_con.add_new_posted_row(row=(user_id, json.dumps({})))
 
         users_db_con.close_connections()

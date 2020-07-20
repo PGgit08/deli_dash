@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Your Profile</title>
+</head>
+<body>
+	<style>
+		body{
+			background-color: black;
+		}
+		
+		h1{
+			color: white;
+		}
+		
+		h2{
+			color: white;
+		}
+		
+		#map {
+			height: 530px;
+			width: 60%;  
+    }
+		
+		#profile_header{
+			position: absolute;
+			left: 40%;
+		}
+
+		#toggle{
+			position: absolute;
+			left: 70%;
+			top: 40%;
+		}
+	</style>
+	<h1 id="profile_header">YOUR PROFILE</h1>
+	<br><br><br><br>
+	<div id="map"></div>
+	
+	<div id="toggle">
+		<h2>Toggle Between Saved and Posted Places/Things</h2>
+		<button id="show_saved">Saved Places</button>
+		<button id="show_posted">Posted Items</button>
+	</div>
+	
+	<a href='/nearby_search'>NEW NEARBY DELI SEARCH</a>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		function draw_map(){
+			// username and password vars
+			var uname;
+			var pword;
+			
+			// vars for saved and posted data
+			var saved;
+			var posted;
+			var posted_Place_ids;
+			
+			// vars for saved and posted PLACES data
+			var saved_places_data = {};
+			var posted_places_data = {};
+			
+			// turn server response into string jinja2
+			uname = {{username | tojson}};
+			pword = {{password | tojson}};
+			
+			function uinfo_api_handler(response){
+				saved = JSON.parse(JSON.parse(response)['saved']);
+				posted = JSON.parse(JSON.parse(response)['posted']);
+				posted_Place_ids = Object.keys(posted);
+			}
+			
+			function uinfo_api_request(username, password){
+				$.get('/api/dd_user/get_user_info', {username: username, password: password}, function(data, status){
+					if(status == "success"){
+						console.log("REQEST WORKED");
+						uinfo_api_handler(data);
+					}
+					
+					else {
+						document.write('API ERROR');
+						console.log('API ERROR(error code 00x11xnmG)');
+					}
+				});
+			}
+			uinfo_api_request(uname, pword);			
+			
+			// create map
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 3,
+				center: new google.maps.LatLng(0, 0),
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			});
+			
+			function draw_markers(places){
+				console.log("FUNCTION IN MAKING PROGESS");
+			}
+			
+			// toggle functions
+			function show_saved(){
+				$.post("/api/dd_maps/get_places_info_by_ids", {ids: JSON.stringify(saved)}, 
+				function(data, status){
+					menus = JSON.parse(data);
+					// put menus into dictionary
+					for(i in saved){
+						id = saved[i];
+						saved_places_data[id] = {"menu": menus[id], 
+																		 "location": {},
+																		 "name": ""};
+					}
+					// get names and locations of places using google maps api 
+					// THIS CODE IS IN PROGRESS (api documentation below)
+					// https://developers.google.com/maps/documentation/javascript/places#place_details_requests
+				});
+			}
+			
+			function show_posted(){
+				$.post("/api/dd_maps/get_places_info_by_ids", {ids: JSON.stringify(posted_Place_ids)}, 
+				function(data, status){
+					menus = JSON.parse(data);
+					// put menus into dictionary
+					for(id in posted){
+						posted_places_data[id] = {"menu": menus[id], 
+																		  "location": {},
+																		  "name": "",
+																		  "posted": posted[id]};
+					}
+					// get names and locations of places using google maps api 
+					// THIS CODE IS IN PROGRESS (api documentation below)
+					// https://developers.google.com/maps/documentation/javascript/places#place_details_requests
+				});
+			}
+				
+			// add event listeners
+			document.getElementById("show_saved").addEventListener("click", show_saved);
+			document.getElementById("show_posted").addEventListener("click", show_posted);
+		}
+						
+	</script>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGb61LgcVHDtga1yeKrcPOvnVInCtr3ms&callback=draw_map">
+	</script>
+</body>
+</html>

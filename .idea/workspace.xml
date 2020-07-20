@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e4db457a-3af5-4888-8ffb-255a9a9b3f46" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1038773444">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="54" />
+          <entry key="project.open.time.0" value="4" />
+          <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.5" value="13" />
+          <entry key="project.open.time.6" value="7" />
+          <entry key="project.open.time.7" value="11" />
+          <entry key="project.open.time.8" value="6" />
+          <entry key="project.open.time.9" value="5" />
+          <entry key="project.opened" value="54" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="4" />
+          <entry key="py" value="24" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="4" />
+          <entry key="Python" value="24" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="22" />
+          <entry key="html" value="6987" />
+          <entry key="py" value="21343" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="6987" />
+          <entry key="PLAIN_TEXT" value="22" />
+          <entry key="Python" value="21343" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/deli_dash_site.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
+              <folding>
+                <element signature="e#64#123#0" expanded="true" />
+                <marker date="1595003673745" expanded="true" signature="2624:3129" ph="..." />
+                <marker date="1595003673745" expanded="true" signature="2896:2897" ph="..." />
+                <marker date="1595003673745" expanded="true" signature="2982:3129" ph="..." />
+                <marker date="1595003673745" expanded="true" signature="3097:3129" ph="..." />
+                <marker date="1595003673745" expanded="true" signature="3430:3480" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dd_site_apis.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2040">
+              <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
+              <folding>
+                <marker date="1594915019383" expanded="true" signature="5249:5254" ph="..." />
+                <marker date="1594915019383" expanded="true" signature="5601:5725" ph="..." />
+                <marker date="1594915019383" expanded="true" signature="5747:5756" ph="..." />
+                <marker date="1594915019383" expanded="true" signature="5747:6195" ph="..." />
+                <marker date="1594915019383" expanded="true" signature="6517:6522" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dd_maps.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+              <folding>
+                <element signature="e#89#104#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dd_user.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
+              <folding>
+                <element signature="e#174#196#0" expanded="true" />
+                <marker date="1595004534498" expanded="true" signature="229:230" ph="..." />
+                <marker date="1595004534498" expanded="true" signature="229:234" ph="..." />
+                <marker date="1595004534498" expanded="true" signature="264:305" ph="..." />
+                <marker date="1595004534498" expanded="true" signature="355:356" ph="..." />
+                <marker date="1595004534498" expanded="true" signature="355:374" ph="..." />
+                <marker date="1595004534498" expanded="true" signature="429:438" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dd_sql_managers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <marker date="1594825095626" expanded="true" signature="740:905" ph="..." />
+                <marker date="1594825095626" expanded="true" signature="939:1106" ph="..." />
+                <marker date="1594825095626" expanded="true" signature="1735:1980" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>user_loc_js</find>
+      <find>nearby_places_menu</find>
+      <find>self.</find>
+      <find>self.nearby_places_locations</find>
+      <find>self.nearby_places_names</find>
+      <find>places_db.close_connections</find>
+      <find>api_con</find>
+      <find>hash</find>
+      <find>add_new_row</find>
+      <find>print</find>
+      <find>basic</find>
+      <find>dd_basic_con</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>self.static_nearby_places_names</replace>
+      <replace>dd_basic_con</replace>
+      <replace>dd_maps_con</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/show_map.html" />
+        <option value="$USER_HOME$/PycharmProjects/networking/tester.py" />
+        <option value="$PROJECT_DIR$/input_address.html" />
+        <option value="$PROJECT_DIR$/log_in.html" />
+        <option value="$PROJECT_DIR$/profile_page.html" />
+        <option value="$PROJECT_DIR$/deli_dash_basic.py" />
+        <option value="$PROJECT_DIR$/deli_dash_user.py" />
+        <option value="$PROJECT_DIR$/dd_basic.py" />
+        <option value="$PROJECT_DIR$/dd_maps.py" />
+        <option value="$PROJECT_DIR$/dd_sql_managers.py" />
+        <option value="$PROJECT_DIR$/dd_site_apis.py" />
+        <option value="$PROJECT_DIR$/deli_dash_site.py" />
+        <option value="$PROJECT_DIR$/dd_user.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="233" />
+    <option name="y" value="90" />
+    <option name="width" value="945" />
+    <option name="height" value="723" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/peter/Desktop/Deli_Dash/dd_maps.py&#10;tester&#9;FILE&#9;file://C:/Users/peter/PycharmProjects/networking/tester.py&#10;snake&#9;null&#9;null&#10;sanke&#9;null&#9;null&#10;input&#9;FILE&#9;file://C:/Users/peter/Desktop/Deli_Dash/input_address.html&#10;deli_&#9;null&#9;null&#10;d&#9;null&#9;null" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.deli_dash_site">
+    <configuration name="deli_dash_site" type="PythonConfigurationType" factoryName="Python">
+      <module name="Deli_Dash" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\peter\AppData\Local\Programs\Python\Python37\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deli_dash_site.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tester" type="PythonConfigurationType" factoryName="Python">
+      <module name="Deli_Dash" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\peter\AppData\Local\Programs\Python\Python37\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/PycharmProjects/networking" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/PycharmProjects/networking/tester.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.deli_dash_site" />
+      <item itemvalue="Python.tester" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e4db457a-3af5-4888-8ffb-255a9a9b3f46" name="Default Changelist" comment="" />
+      <created>1591881699299</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591881699299</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36557376" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/matplotlib/sankey.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/snake_thing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="332" column="20" selection-end-line="355" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PycharmProjects/networking/tester.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="130" selection-start-line="3" selection-start-column="130" selection-end-line="3" selection-end-column="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/show_map.html" />
+    <entry file="file://$PROJECT_DIR$/input_address.html" />
+    <entry file="file://$PROJECT_DIR$/profile_page.html" />
+    <entry file="file://$PROJECT_DIR$/log_in.html" />
+    <entry file="file://$PROJECT_DIR$/deli_dash_site.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
+          <folding>
+            <element signature="e#64#123#0" expanded="true" />
+            <marker date="1595003673745" expanded="true" signature="2624:3129" ph="..." />
+            <marker date="1595003673745" expanded="true" signature="2896:2897" ph="..." />
+            <marker date="1595003673745" expanded="true" signature="2982:3129" ph="..." />
+            <marker date="1595003673745" expanded="true" signature="3097:3129" ph="..." />
+            <marker date="1595003673745" expanded="true" signature="3430:3480" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dd_site_apis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
+          <folding>
+            <marker date="1594915019383" expanded="true" signature="5249:5254" ph="..." />
+            <marker date="1594915019383" expanded="true" signature="5601:5725" ph="..." />
+            <marker date="1594915019383" expanded="true" signature="5747:5756" ph="..." />
+            <marker date="1594915019383" expanded="true" signature="5747:6195" ph="..." />
+            <marker date="1594915019383" expanded="true" signature="6517:6522" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dd_maps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#89#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dd_user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#174#196#0" expanded="true" />
+            <marker date="1595004534498" expanded="true" signature="229:230" ph="..." />
+            <marker date="1595004534498" expanded="true" signature="229:234" ph="..." />
+            <marker date="1595004534498" expanded="true" signature="264:305" ph="..." />
+            <marker date="1595004534498" expanded="true" signature="355:356" ph="..." />
+            <marker date="1595004534498" expanded="true" signature="355:374" ph="..." />
+            <marker date="1595004534498" expanded="true" signature="429:438" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dd_sql_managers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <marker date="1594825095626" expanded="true" signature="740:905" ph="..." />
+            <marker date="1594825095626" expanded="true" signature="939:1106" ph="..." />
+            <marker date="1594825095626" expanded="true" signature="1735:1980" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

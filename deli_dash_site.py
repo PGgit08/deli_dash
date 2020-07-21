@@ -57,7 +57,6 @@ def add_to_nearby_place_menu():
 @site.route('/api/dd_maps/get_places_info_by_ids', methods=["POST"])
 def return_place_info_by_id():
     ids = request.form['ids']
-    print(ids)
 
     ids = json.loads(ids)
     menu = dd_maps_con.get_place_info_by_id(ids)

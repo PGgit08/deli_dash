@@ -74,32 +74,46 @@
 			// these classes will be used to make posted/saved markers and hide/show them
 			class SavedMarkers {
 				constructor(places){
-					this.saved_places = places;
+					// this is an array
 					this.saved_places_markers = [];
 				}
 				
-				create_markers(){
-					for(id in this.saved_places){
-						console.log("i was called");
-						place = this.saved_places[id];
-						
-						// create the marker
-						var marker = new google.maps.Marker({
-							map: map,
-							title: place.name,
-							position: place.location
-						});
+				create_marker(place_info){
+					var marker = new google.maps.Marker({
+						map: map,
+						title: place_info.name,
+						position: place_info.location
+					 });
+					this.saved_places_markers.push(marker);
+				}
+				
+				set_view(visible){
+					for(var i in this.saved_places_markers){
+						this.saved_places_markers[i].setVisible(visible);
 					}
 				}
 				
-				view(visible){
-					console.log("FUNCTION IN MAKING PROGRESS");
+				get_view(){
+					for(var i in this.saved_places_markers){
+						var view = this.saved_places_markers[i]
+						view = view.getVisible();
+							
+						if(view == false){
+							return false;
+							break;
+						}
+						
+						if(view == true){
+							return true;
+							break;
+						}
+					}
 				}
 			}
 			
 			class PostedMarkers {
-				constructor(places){
-					this.posted_places = places;
+				constructor(){
+					this.posted_places_markers = [];
 				}
 				
 				create_markers(){
@@ -111,6 +125,9 @@
 				}
 			}
 			
+			// init classes
+			saved_markers = new SavedMarkers()
+			posted_markers = new PostedMarkers()
 			
 			// turn server response into string jinja2
 			uname = {{username | tojson}};
@@ -157,6 +174,11 @@
 							if (status == google.maps.places.PlacesServiceStatus.OK) {
 								saved_places_data[place.place_id].location = place.geometry.location;
 								saved_places_data[place.place_id].name = place.name;
+								
+								// here we use the saved_markers class to make a marker
+								place_data = saved_places_data[place.place_id]
+								saved_markers.create_marker(place_data);
+								saved_markers.set_view(false);
 							}
 							else{
 								console.log("GOOGLE MAPS ERROR (error: XLKO)");
@@ -215,15 +237,18 @@
 			
 			// do server request to get user info and load it
 			uinfo_api_request(uname, pword);
-			console.log(saved_places_data);
-			console.log(posted_places_data);
-			
-			A = new SavedMarkers(saved_places_data);
-			A.create_markers();
 			
 			// toggle functions
 			function show_saved(){
-				alert("show saved clicked");
+				view = saved_markers.get_view();
+				
+				if(view == false){
+					saved_markers.set_view(true);
+				}
+				
+				if(view == true){
+					saved_markers.set_view(false);
+				}
 			}
 			
 			function show_posted(){

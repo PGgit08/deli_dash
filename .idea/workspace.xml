@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4db457a-3af5-4888-8ffb-255a9a9b3f46" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_scripts/cyber security stuff.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client_scripts/profile_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/client_scripts/profile_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dd_maps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dd_site_apis.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dd_sql_managers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dd_user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deli_dash_site.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/places.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.db" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +22,7 @@
     <session id="-1038773444">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="58" />
+          <entry key="project.closed" value="59" />
           <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="1" />
@@ -23,11 +30,11 @@
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.5" value="13" />
-          <entry key="project.open.time.6" value="8" />
+          <entry key="project.open.time.6" value="9" />
           <entry key="project.open.time.7" value="11" />
           <entry key="project.open.time.8" value="6" />
           <entry key="project.open.time.9" value="8" />
-          <entry key="project.opened" value="58" />
+          <entry key="project.opened" value="59" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -59,85 +66,7 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/deli_dash_site.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-              <folding>
-                <element signature="e#64#123#0" expanded="true" />
-                <marker date="1595342993028" expanded="true" signature="2639:3144" ph="..." />
-                <marker date="1595342993028" expanded="true" signature="2911:2912" ph="..." />
-                <marker date="1595342993028" expanded="true" signature="2997:3144" ph="..." />
-                <marker date="1595342993028" expanded="true" signature="3112:3144" ph="..." />
-                <marker date="1595342993028" expanded="true" signature="3445:3495" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dd_site_apis.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
-              <folding>
-                <marker date="1594915019383" expanded="true" signature="5249:5254" ph="..." />
-                <marker date="1594915019383" expanded="true" signature="5601:5725" ph="..." />
-                <marker date="1594915019383" expanded="true" signature="5747:5756" ph="..." />
-                <marker date="1594915019383" expanded="true" signature="5747:6195" ph="..." />
-                <marker date="1594915019383" expanded="true" signature="6517:6522" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dd_maps.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-              <folding>
-                <element signature="e#89#104#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dd_user.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="44" column="26" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
-              <folding>
-                <element signature="e#174#196#0" expanded="true" />
-                <marker date="1595258639036" expanded="true" signature="229:230" ph="..." />
-                <marker date="1595258639036" expanded="true" signature="229:234" ph="..." />
-                <marker date="1595258639036" expanded="true" signature="264:305" ph="..." />
-                <marker date="1595258639036" expanded="true" signature="355:356" ph="..." />
-                <marker date="1595258639036" expanded="true" signature="355:374" ph="..." />
-                <marker date="1595258639036" expanded="true" signature="429:438" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dd_sql_managers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <marker date="1594825095626" expanded="true" signature="740:905" ph="..." />
-                <marker date="1594825095626" expanded="true" signature="939:1106" ph="..." />
-                <marker date="1594825095626" expanded="true" signature="1735:1980" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -206,7 +135,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/peter/Desktop/Deli_Dash/dd_maps.py&#10;tester&#9;FILE&#9;file://C:/Users/peter/PycharmProjects/networking/tester.py&#10;snake&#9;null&#9;null&#10;sanke&#9;null&#9;null&#10;input&#9;FILE&#9;file://C:/Users/peter/Desktop/Deli_Dash/input_address.html&#10;deli_&#9;null&#9;null&#10;d&#9;null&#9;null" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server_scripts" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -283,7 +212,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -332,29 +260,17 @@
     <entry file="file://$PROJECT_DIR$/deli_dash_site.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#64#123#0" expanded="true" />
-            <marker date="1595342993028" expanded="true" signature="2639:3144" ph="..." />
-            <marker date="1595342993028" expanded="true" signature="2911:2912" ph="..." />
-            <marker date="1595342993028" expanded="true" signature="2997:3144" ph="..." />
-            <marker date="1595342993028" expanded="true" signature="3112:3144" ph="..." />
-            <marker date="1595342993028" expanded="true" signature="3445:3495" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dd_site_apis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
+        <state relative-caret-position="305">
           <caret line="124" column="20" selection-start-line="124" selection-start-column="20" selection-end-line="124" selection-end-column="20" />
-          <folding>
-            <marker date="1594915019383" expanded="true" signature="5249:5254" ph="..." />
-            <marker date="1594915019383" expanded="true" signature="5601:5725" ph="..." />
-            <marker date="1594915019383" expanded="true" signature="5747:5756" ph="..." />
-            <marker date="1594915019383" expanded="true" signature="5747:6195" ph="..." />
-            <marker date="1594915019383" expanded="true" signature="6517:6522" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -374,12 +290,6 @@
           <caret line="44" column="26" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
           <folding>
             <element signature="e#174#196#0" expanded="true" />
-            <marker date="1595258639036" expanded="true" signature="229:230" ph="..." />
-            <marker date="1595258639036" expanded="true" signature="229:234" ph="..." />
-            <marker date="1595258639036" expanded="true" signature="264:305" ph="..." />
-            <marker date="1595258639036" expanded="true" signature="355:356" ph="..." />
-            <marker date="1595258639036" expanded="true" signature="355:374" ph="..." />
-            <marker date="1595258639036" expanded="true" signature="429:438" ph="..." />
           </folding>
         </state>
       </provider>
@@ -388,11 +298,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <marker date="1594825095626" expanded="true" signature="740:905" ph="..." />
-            <marker date="1594825095626" expanded="true" signature="939:1106" ph="..." />
-            <marker date="1594825095626" expanded="true" signature="1735:1980" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>

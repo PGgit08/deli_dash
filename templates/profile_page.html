@@ -46,7 +46,14 @@
 	
 	<a href='/nearby_search'>NEW NEARBY DELI SEARCH</a>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script type="text/javascript" src="profile_page.js"></script>
+	
+	<script>
+	// because of some jinja problems the username and password variables are created here
+		window.username = "{{username}}"; 
+		window.password = "{{password}}";
+	</script>
+	
+	<script src="/static/profile_page.js"></script>
 	
 	<script async defer
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGb61LgcVHDtga1yeKrcPOvnVInCtr3ms&callback=draw_map&libraries=places">

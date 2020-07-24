@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 530px;  /* The height is in pixels */
+        width: 70%;  /* The width is the width of the web page */
+       }
+
+      #area_info{
+        position: fixed;
+				top: 300px;
+				left: 1050px;
+      }
+			
+		
+			body{
+				background-color: black;
+      }
+			
+			#map_id{
+				color: white;
+			}
+			
+			#name{
+				color:white;
+			}
+    </style>
+    <title>Deli Dash</title>
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <h1 id="map_id">Places In Your Area</h1>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <div id="area_info">
+      <h2 id="name">(NO PLACE SELECTED)</h2>
+      <ul id="menu"></ul>
+
+	  <div id="add_menu_slots">
+	  </div>
+      <button id="add_item" disabled>Add Item To Menu</button>
+      <button id="sumbit_added_slots">Submit Added Items</button>
+    </div>
+
+		<script>
+		// because of some jinja problems the radius and user_loc variables are created here
+			window.user_loc = {{user_loc| safe}};
+			window.radius = {{radius}};
+		</script>
+		
+		<script src="/static/show_map.js"></script>
+
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGb61LgcVHDtga1yeKrcPOvnVInCtr3ms&callback=draw_map">
+    </script>
+  </body>
+</html>

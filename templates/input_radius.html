@@ -53,27 +53,6 @@
 		<input id="submit_setup_search" type="button" value="Submit" onclick="getLocation()"/>
   </div>
 
-  <script>
-	function getLocation() {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(redirect);
-		} 
-		else {
-			document.write("Geolocation is not supported by this browser.");
-		}
-	}
-	
-	function redirect(position){
-		var lat = position.coords.latitude;
-		var lng = position.coords.longitude;
-		
-		var loc_data = {"lat": lat, "lng": lng};
-		var radius_dropdown = document.getElementById("radius");
-		var chosen_radius = radius_dropdown.options[radius_dropdown.selectedIndex].value;
-		// redirect
-		window.location = "/nearby_search/map?user_loc=" + JSON.stringify(loc_data) + "&rad=" + chosen_radius;
-	}
-
-  </script>
+  <script src="/static/input_radius.js"></script>
   </body>
 </html>

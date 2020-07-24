@@ -24,7 +24,7 @@ function draw_map(){
 	
 	// these classes will be used to make posted/saved markers and hide/show them
 	class SavedMarkers {
-		constructor(places){
+		constructor(){
 			// this is an array
 			this.saved_places_markers = [];
 		}
@@ -35,6 +35,17 @@ function draw_map(){
 				title: place_info.name,
 				position: place_info.location
 			 });
+			 
+			google.maps.event.addListener(
+				marker,
+				'click',
+				(function (i){
+					return function(){
+						alert("MARKER CLICKED");
+					}
+				})(place_info.id)
+			);
+				
 			this.saved_places_markers.push(marker);
 		}
 		
@@ -47,6 +58,56 @@ function draw_map(){
 		get_view(){
 			for(var i in this.saved_places_markers){
 				var view = this.saved_places_markers[i]
+				view = view.getVisible();
+					
+				if(view == false){
+					return false;
+					break;
+				}
+				
+				if(view == true){
+					return true;
+					break;
+				}
+			}
+		}
+	}
+
+	// posted markers class
+	class PostedMarkers {
+		constructor(){
+			// this is an array
+			this.posted_places_markers = [];
+		}
+		
+		create_marker(place_info){
+			var marker = new google.maps.Marker({
+				map: map,
+				title: place_info.name,
+				position: place_info.location
+			 });
+			this.posted_places_markers.push(marker);
+			
+			google.maps.event.addListener(
+				marker,
+				'click',
+				(function (i){
+					return function(){
+						alert("MARKER CLICKED");
+					}
+				})(place_info.id)
+			);
+		}
+		
+		set_view(visible){
+			for(var i in this.posted_places_markers){
+				this.posted_places_markers[i].setVisible(visible);
+			}
+		}
+		
+		get_view(){
+			for(var i in this.posted_places_markers){
+				var view = this.posted_places_markers[i]
 				view = view.getVisible();
 					
 				if(view == false){
@@ -62,53 +123,15 @@ function draw_map(){
 		}
 	}
 	
-	// class for posted markers
-	class SavedMarkers {
-		constructor(places){
-			// this is an array
-			this.saved_places_markers = [];
-		}
-		
-		create_marker(place_info){
-			var marker = new google.maps.Marker({
-				map: map,
-				title: place_info.name,
-				position: place_info.location
-			 });
-			this.saved_places_markers.push(marker);
-		}
-		
-		set_view(visible){
-			for(var i in this.saved_places_markers){
-				this.saved_places_markers[i].setVisible(visible);
-			}
-		}
-		
-		get_view(){
-			for(var i in this.saved_places_markers){
-				var view = this.saved_places_markers[i]
-				view = view.getVisible();
-					
-				if(view == false){
-					return false;
-					break;
-				}
-				
-				if(view == true){
-					return true;
-					break;
-				}
-			}
-		}
-	}
 	
 	// init classes
-	saved_markers = new SavedMarkers()
-	posted_markers = new PostedMarkers()
+	saved_markers = new SavedMarkers();
+	posted_markers = new PostedMarkers();
 	
-	// turn server response into string jinja2
-	uname = {{username | tojson}};
-	pword = {{password | tojson}};
+	// Becuase of some errors the html file will create these jinja variables for use
+	// So we do not need to use jinja here
+	uname = window.username;
+	pword = window.password;
 	
 	
 	function uinfo_api_request(username, password){
@@ -153,7 +176,7 @@ function draw_map(){
 						saved_places_data[place.place_id].name = place.name;
 						
 						// here we use the saved_markers class to make a marker
-						place_data = saved_places_data[place.place_id]
+						place_data = saved_places_data[place.place_id];
 						saved_markers.create_marker(place_data);
 						saved_markers.set_view(false);
 					}
@@ -193,11 +216,15 @@ function draw_map(){
 					if(status == google.maps.places.PlacesServiceStatus.OK){
 						posted_places_data[place.place_id].location = place.geometry.location;
 						posted_places_data[place.place_id].name = place.name;
+						
+						// here we will use the PostedMarkers class to create markers
+						place_data = posted_places_data[place.place_id];
+						posted_markers.create_marker(place_data);
+						posted_markers.set_view(false);
 					}
 					
 					else {
-						document.write('API ERROR');
-						console.log('API ERROR(error code 00x11xnmG)');
+						console.log("GOOGLE MAPS API ERROR (error: XLKO)");
 					}
 				}
 			}
@@ -229,7 +256,15 @@ function draw_map(){
 	}
 	
 	function show_posted(){
-		alert("show posted clicked");
+		view = posted_markers.get_view();
+		
+		if(view == false){
+			posted_markers.set_view(true);
+		}
+		
+		if(view == true){
+			posted_markers.set_view(false);
+		}
 	}
 	
 	// add event listeners

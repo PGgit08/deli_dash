@@ -6,7 +6,9 @@ from flask import Flask, render_template, request, redirect
 from dd_site_apis import *
 
 
-site = Flask(__name__, template_folder="C:\\Users\\peter\\Desktop\\Deli_Dash\\client_scripts")
+site = Flask(__name__, template_folder="C:\\Users\\peter\\Desktop\\Deli_Dash\\templates",
+             static_url_path='/static',
+             static_folder='C:\\Users\\peter\\Desktop\\Deli_Dash\\static')
 
 # =================================== API ENDPOINTS ===================================
 """
@@ -15,8 +17,10 @@ These links run the APIS based on the request bodies
 
 # activate API's
 # (note: these arent exactly api's because they are just classes that call functions from other programs)
-dd_maps_con = DdMapsClass(key="AIzaSyDGb61LgcVHDtga1yeKrcPOvnVInCtr3ms", file_name="places.db")
-dd_user_con = DdUserClass(username='', password='', file_name='users.db')
+dd_maps_con = DdMapsClass(key="AIzaSyDGb61LgcVHDtga1yeKrcPOvnVInCtr3ms",
+                          file_name="C:\\Users\\peter\\Desktop\\Deli_Dash\\databases\\places.db")
+dd_user_con = DdUserClass(username='', password='',
+                          file_name="C:\\Users\\peter\\Desktop\\Deli_Dash\\databases\\users.db")
 
 
 # ------------------------- API ENDPOINTS----------------------------
@@ -129,7 +133,7 @@ def user_profile():
 
 @site.route('/nearby_search')
 def get_user_address():
-    return render_template('input_address.html')
+    return render_template('input_radius.html')
 
 
 @site.route('/nearby_search/map')

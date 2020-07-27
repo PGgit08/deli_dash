@@ -23,7 +23,7 @@ function draw_map(){
 	service = new google.maps.places.PlacesService(map);
 	
 	// function for filling up html menu
-	function fill_html_menu(nearby_place_menu, name){
+	function fill_html_menu(nearby_place_menu, name, posted_items={}){
 		// create object out of nearby_place_menu
 		nearby_place_menu = JSON.parse(nearby_place_menu);
 		
@@ -36,7 +36,17 @@ function draw_map(){
 			// here the html menu gets filled up
 			item_and_price = document.createElement("LI");
 			item_and_price.innerHTML = item + ": " + nearby_place_menu[item];
-			item_and_price.style.color = "white";
+			
+			// checks if one of the menu items is an item that the user posted
+			console.log(item);
+			if(Object.keys(posted_items).includes(item, 0)){
+				alert("HIII");
+				item_and_price.style.color = "green";
+			}
+			
+			else {
+				item_and_price.style.color = "white";
+			}
 
 			$("#menu").append(item_and_price);
 
@@ -116,7 +126,7 @@ function draw_map(){
 				(function (i){
 					return function(){
 						alert("MARKER CLICKED");
-						fill_html_menu(i.menu, i.name);
+						fill_html_menu(i.menu, i.name, i.posted);
 					}
 				})(place_info)
 			);
@@ -161,9 +171,10 @@ function draw_map(){
 		$.get('/api/dd_user/get_user_info', {username: username, password: password}, function(data, status){
 			if(status == "success"){
 				console.log("REQEST WORKED");
-				saved = JSON.parse(JSON.parse(data).saved);
-				posted = JSON.parse(JSON.parse(data).posted);
-				console.log(posted);
+				
+				user_data = JSON.parse(data);
+				saved = JSON.parse(user_data.saved);
+				posted = JSON.parse(user_data.posted);
 				posted_Place_ids = Object.keys(posted);
 				load_saved(saved);
 				load_posted(posted_Place_ids);
@@ -215,9 +226,6 @@ function draw_map(){
 				console.log('API ERROR(error code 00x11xnmG)');
 			}
 		}
-			// get names and locations of places using google maps api 
-			// THIS CODE IS IN PROGRESS (api documentation below)
-			// https://developers.google.com/maps/documentation/javascript/places#place_details_requests
 	)};
 	
 	function load_posted(posted_Place_ids){
@@ -226,12 +234,12 @@ function draw_map(){
 			if (status == "success"){
 				menus = JSON.parse(data);
 				// put menus into dictionary
-				console.log(posted);
 				for(id in posted){
 					posted_places_data[id] = {"menu": menus[id], 
 																		"location": {},
 																		"name": "",
 																		"posted": posted[id]};
+					// right here the posted would look like this: {random_menu_item, random_price}
 					request = {placeId: id,
 										 fields: ['place_id', 'name', 'geometry']}
 					
@@ -258,9 +266,6 @@ function draw_map(){
 				document.write('API ERROR');
 				console.log('API ERROR(error code 00x11xnmG)');
 			}
-			// get names and locations of places using google maps api 
-			// THIS CODE IS IN PROGRESS (api documentation below)
-			// https://developers.google.com/maps/documentation/javascript/places#place_details_requests
 		});
 	}
 	

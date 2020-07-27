@@ -22,6 +22,27 @@ function draw_map(){
 	// map service for getting place data javascript
 	service = new google.maps.places.PlacesService(map);
 	
+	// function for filling up html menu
+	function fill_html_menu(nearby_place_menu, name){
+		// create object out of nearby_place_menu
+		nearby_place_menu = JSON.parse(nearby_place_menu);
+		
+		//reset menu
+		document.getElementById("menu").innerHTML = "";
+		document.getElementById("name").innerHTML = name;
+		document.getElementById("name").color = "white";
+
+		for(var item in nearby_place_menu){
+			// here the html menu gets filled up
+			item_and_price = document.createElement("LI");
+			item_and_price.innerHTML = item + ": " + nearby_place_menu[item];
+			item_and_price.style.color = "white";
+
+			$("#menu").append(item_and_price);
+
+		}
+	}
+	
 	// these classes will be used to make posted/saved markers and hide/show them
 	class SavedMarkers {
 		constructor(){
@@ -42,8 +63,9 @@ function draw_map(){
 				(function (i){
 					return function(){
 						alert("MARKER CLICKED");
+						fill_html_menu(i.menu, i.name);
 					}
-				})(place_info.id)
+				})(place_info)
 			);
 				
 			this.saved_places_markers.push(marker);
@@ -94,8 +116,9 @@ function draw_map(){
 				(function (i){
 					return function(){
 						alert("MARKER CLICKED");
+						fill_html_menu(i.menu, i.name);
 					}
-				})(place_info.id)
+				})(place_info)
 			);
 		}
 		
@@ -140,6 +163,7 @@ function draw_map(){
 				console.log("REQEST WORKED");
 				saved = JSON.parse(JSON.parse(data).saved);
 				posted = JSON.parse(JSON.parse(data).posted);
+				console.log(posted);
 				posted_Place_ids = Object.keys(posted);
 				load_saved(saved);
 				load_posted(posted_Place_ids);
@@ -202,6 +226,7 @@ function draw_map(){
 			if (status == "success"){
 				menus = JSON.parse(data);
 				// put menus into dictionary
+				console.log(posted);
 				for(id in posted){
 					posted_places_data[id] = {"menu": menus[id], 
 																		"location": {},

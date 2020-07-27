@@ -124,8 +124,8 @@ function draw_map(){
 					return function () {
 						document.getElementById("add_menu_slots").innerHTML = "";
 						temporary_id = i;
-						var place_menu = nearby_places_data[i]['menu'];
-						var place_name = nearby_places_data[i]['name'];
+						var place_menu = nearby_places_data[i].menu;
+						var place_name = nearby_places_data[i].name;
 						place_menu = JSON.parse(place_menu);
 
 						// fill html menu and enable add menu button

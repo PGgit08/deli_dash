@@ -97,12 +97,22 @@ def create_user():
     return dd_user_con.create_user()
 
 
-@site.route('/api/dd_user/add_to_user/posted', methods=['POST'])
+@site.route('/api/dd_user/modify/posted', methods=['POST'])
 def add_to_posted():
+    # get credentials
+    username = request.form['username']
+    password = request.form['password']
+
+    modify_type = request.form['modify_type']
+    # if the type is to add, then the client will add the DICTIONARY thing to add
+    # x = {'bruh': '1'}
+    # example: modify_type = add username = bob password = abc (apis and dd_user find user, get id, retrieve their data,
+    #                                                           add to their data)
+    modification = request.form['modification']
     return "API IN PROGRESS"
 
 
-@site.route('/api/dd_user/add_to_user/saved', methods=['POST'])
+@site.route('/api/dd_user/modify/saved', methods=['POST'])
 def add_to_saved():
     return "API IN PROGRESS"
 
@@ -110,7 +120,7 @@ def add_to_saved():
 # ====================================== GUI =====================================
 @site.route('/')
 def send_to_login():
-    return redirect(location='/login', code=302)
+    return redirect(location='/nearby_search', code=302)
 
 
 @site.route('/login')
@@ -136,7 +146,7 @@ def get_user_address():
     return render_template('input_radius.html')
 
 
-@site.route('/nearby_search/map')
+@site.route('/nearby_search/map', methods=["GET", "POST"])
 def display_map_with_nearby_locations():
     user_loc = request.args.get("user_loc")
     radius = request.args.get("rad")

@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
+			<link rel="shortcut icon" href="/static/favicon.png">
       <title>Setup Search</title>
+			<style>
+				#setup_search_div{
+					position: fixed;
+					right: 45%;
+					bottom: 50%;
+					width: auto;
+				}
+
+				body{
+					background-color: black;
+				}
+
+				#search_header{
+					color: white;
+				}
+
+				#submit_setup_search{
+					position:fixed;
+					right: 50%;
+					bottom: 40%;
+				}
+				
+				#radius{
+					position: fixed;
+					right: 49.7%;
+					bottom: 47%;
+				}
+				
+				#radius_message{
+					position: fixed;
+					color: blue;
+					left: 43%;
+					bottom: 48%
+				}
+			
+		</style>
   </head>
   <body>
-  <style>
-		#setup_search_div{
-			position: fixed;
-			right: 45%;
-			bottom: 50%;
-			width: auto;
-		}
-
-		body{
-			background-color: black;
-		}
-
-		#search_header{
-			color: white;
-		}
-
-		#submit_setup_search{
-			position:fixed;
-			right: 50%;
-			bottom: 40%;
-		}
-		
-		#radius{
-			position: fixed;
-			right: 49.7%;
-			bottom: 47%;
-		}
-		
-		#radius_message{
-			position: fixed;
-			color: blue;
-			left: 43%;
-			bottom: 48%
-		}
+	<a href='/login'>Login For More!</a>
   
-	</style>
   <div id="setup_search_div">
 		<h1 id="search_header">Setup Search</h1>
 		<h3 id="radius_message">Enter Your Radius</h3>

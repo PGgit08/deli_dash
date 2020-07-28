@@ -38,10 +38,12 @@ function draw_map(){
 			item_and_price.innerHTML = item + ": " + nearby_place_menu[item];
 			
 			// checks if one of the menu items is an item that the user posted
-			console.log(item);
 			if(Object.keys(posted_items).includes(item, 0)){
-				alert("HIII");
 				item_and_price.style.color = "green";
+				var x_button = document.createElement("div");
+				x_button.classList.add("deleteMe");
+				x_button.innerHTML = '[x]';
+				item_and_price.appendChild(x_button);
 			}
 			
 			else {
@@ -297,7 +299,10 @@ function draw_map(){
 		}
 	}
 	
-	// add event listeners
+	// add event listeners(some are in jquery while some are in regular js
 	document.getElementById("show_saved").addEventListener("click", show_saved);
 	document.getElementById("show_posted").addEventListener("click", show_posted);
+	$(".deleteMe").on("click", function(){
+   alert("HELLO");
+	});
 }

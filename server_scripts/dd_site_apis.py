@@ -131,7 +131,6 @@ class DdUserClass:
         self.username = username
         self.password = password
         self.UHandler = dd_user.UserHandler(file_name)
-        self.user_id = 0
 
     # so this class has to do 3 things:
     # find a user(get their info)

@@ -80,6 +80,10 @@ def return_user_info():
 
     # REHASH
     dd_user_con.encode_password()
+
+    # FIND THIS USER
+    dd_user_con.find_user()
+
     return dd_user_con.get_user_info()
 
 
@@ -94,6 +98,10 @@ def create_user():
 
     # REHASH
     dd_user_con.encode_password()
+
+    # FIND USER
+    dd_user_con.find_user()
+
     return dd_user_con.create_user()
 
 

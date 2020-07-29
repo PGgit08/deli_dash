@@ -23,7 +23,7 @@ function draw_map(){
 	service = new google.maps.places.PlacesService(map);
 	
 	// function for filling up html menu
-	function fill_html_menu(nearby_place_menu, name, posted_items={}){
+	function fill_html_menu(nearby_place_menu, name, saved_items=[], posted_items={}){
 		// create object out of nearby_place_menu
 		nearby_place_menu = JSON.parse(nearby_place_menu);
 		
@@ -40,9 +40,9 @@ function draw_map(){
 			// checks if one of the menu items is an item that the user posted
 			if(Object.keys(posted_items).includes(item, 0)){
 				item_and_price.style.color = "green";
-				var x_button = document.createElement("div");
-				x_button.classList.add("deleteMe");
-				x_button.innerHTML = '[x]';
+				var x_button = document.createElement("Button");
+				x_button.classList.add("posted_deleteMe");
+				x_button.innerText = '[x]';
 				item_and_price.appendChild(x_button);
 			}
 			
@@ -74,7 +74,6 @@ function draw_map(){
 				'click',
 				(function (i){
 					return function(){
-						alert("MARKER CLICKED");
 						fill_html_menu(i.menu, i.name);
 					}
 				})(place_info)
@@ -127,7 +126,6 @@ function draw_map(){
 				'click',
 				(function (i){
 					return function(){
-						alert("MARKER CLICKED");
 						fill_html_menu(i.menu, i.name, i.posted);
 					}
 				})(place_info)
@@ -156,6 +154,17 @@ function draw_map(){
 				}
 			}
 		}
+		
+		add(){
+			// function in making progress
+			console.log("FUNCTION IN MAKING PROGRESS");
+		}
+		
+		remove(){
+			//function in making progress
+			console.log("FUNCTION IN MAKING PROGRESS");
+		}
+		
 	}
 	
 	
@@ -299,10 +308,14 @@ function draw_map(){
 		}
 	}
 	
-	// add event listeners(some are in jquery while some are in regular js
+	// add event listeners(some are in jquery while some are in regular js)
 	document.getElementById("show_saved").addEventListener("click", show_saved);
 	document.getElementById("show_posted").addEventListener("click", show_posted);
-	$(".deleteMe").on("click", function(){
-   alert("HELLO");
+	
+	// there were some class issues so i had to rewrite the jquery class event listener
+	$(document).ready(function() {
+    $(document).on('click', '.posted_deleteMe', function(){
+        $(this).parent().remove();
+    });
 	});
 }

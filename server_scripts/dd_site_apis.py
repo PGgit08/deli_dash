@@ -125,12 +125,31 @@ class DdMapsClass:
         return menus
 
 
+"""
+Basic class(DdUserClass) pretending that this class is a literal human, I give it it's own characteristics
+these can be the username, password, if they even exist in the database what their database id is and this class
+can kind of reproduce(create_user function) using it's own id
+"""
+
+
 # class for dd_site so that it can use dd_user
 class DdUserClass:
     def __init__(self, username, password, file_name):
+        # this calls the class we need from dd_user
+        self.UHandler = dd_user.UserHandler(file_name)
+
+        # theses are temporary variables that this user only has during their session
+        # the username and passwords
         self.username = username
         self.password = password
-        self.UHandler = dd_user.UserHandler(file_name)
+
+        # user id's
+        self.user_id = 0
+        self.prev_user_id = 0
+
+        # username and password exists booleans
+        self.username_exists = False
+        self.password_exists = False
 
     # so this class has to do 3 things:
     # find a user(get their info)
@@ -142,28 +161,40 @@ class DdUserClass:
         hash.update(bytes(self.password, 'utf-8'))
         self.password = hash.digest()
 
+    def find_user(self):
+        ustat = self.UHandler.find_user(self.username, self.password)
+        existence = ustat[0]
+        this_id = ustat[1]
+        prev_id = ustat[2]
+
+        # set parts of this class
+        self.user_id = this_id
+        self.prev_user_id = prev_id
+        self.username_exists = existence[0]
+        self.password_exists = existence[1]
+
     def create_user(self):
         # so when the user is created
         # first we need to make sure that this user doesn't exist already
         # and by "user" we mean username
 
-        ustat = self.UHandler.find_user(self.username, self.password)
-        if ustat[0][0]:
+        if self.username_exists:
             return "false"
 
-        if not ustat[0][0]:
-            self.UHandler.create_new_user(user_id=ustat[2] + 1, username=self.username, password=self.password)
+        if not self.username_exists:
+            self.UHandler.create_new_user(user_id=self.prev_user_id + 1, username=self.username, password=self.password)
             return "true"
 
     def get_user_info(self):
-        ustat = self.UHandler.find_user(self.username, self.password)
-        if ustat[0][0] and ustat[0][1]:
-            print("THIS USER DOES EXIST" + " @" + self.username + " @" + str(ustat[1]))
-            return self.UHandler.retrieve_user(ustat[1])
+        if self.username_exists and self.password_exists:
+            print("THIS USER DOES EXIST" + " @" + self.username + " @" + str(self.user_id))
+            return self.UHandler.retrieve_user(self.user_id)
 
         else:
             return "false"
 
-    #
-    # def add_to_user(self):
-    #     pass
+    def add_to_user(self, modify_item, modify_type, modification):
+        # modify_item can be "posted" or "saved"
+        # modify_type can be "add", "delete", "all"
+        # modification is based on modify item see dd_user
+        pass

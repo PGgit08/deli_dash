@@ -86,3 +86,13 @@ class UserHandler:
 
         response = {'saved': saved, 'posted': posted}
         return json.dumps(response)
+
+    def change_posted(self, user_id, modification, modify_type):
+        # modification {'x': {'y': 'z'}} or 'x' or "all"(all just removes everything)
+        # modify type: "add", "delete"
+        pass
+
+    def change_saved(self, user_id, modification, modify_type):
+        # modification 'x' or ['x', 'y'] or "all"(all just removes everything)
+        # modify type: "add", "delete"
+        pass

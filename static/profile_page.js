@@ -22,28 +22,56 @@ function draw_map(){
 	// map service for getting place data javascript
 	service = new google.maps.places.PlacesService(map);
 	
+	// temporary variables for deleting items
+	var temp_id;
+	var temp_delete_item;
+	
 	// function for filling up html menu
-	function fill_html_menu(nearby_place_menu, name, saved_items=[], posted_items={}){
+	function fill_html_menu(nearby_place_menu, name, posted_items={}){
+		// optional parameters
+		// posted_items optional dict of THIS person's posted menu items
+		
 		// create object out of nearby_place_menu
 		nearby_place_menu = JSON.parse(nearby_place_menu);
 		
 		//reset menu
 		document.getElementById("menu").innerHTML = "";
+		document.getElementById("name").innerHTML = "";
 		document.getElementById("name").innerHTML = name;
 		document.getElementById("name").color = "white";
 
+		// if we want to add a [x] button we need to check if this is POSTED or SAVED
+		
+		if(Object.keys(posted_items).length == 0){
+			// add [x] button to name of saved place
+			place_name = document.getElementById("name");
+		
+			// create delete button 
+			saved_x_button = document.createElement("Button");
+			saved_x_button.classList.add("saved_deleteMe");
+			saved_x_button.innerText = '[x]';
+			
+			place_name.appendChild(saved_x_button);
+		}
+		
+		
+		// go through menu items
 		for(var item in nearby_place_menu){
 			// here the html menu gets filled up
 			item_and_price = document.createElement("LI");
-			item_and_price.innerHTML = item + ": " + nearby_place_menu[item];
+			item_and_price.innerHTML = item + ":" + nearby_place_menu[item];
+			item_and_price.id = item; 
 			
 			// checks if one of the menu items is an item that the user posted
 			if(Object.keys(posted_items).includes(item, 0)){
 				item_and_price.style.color = "green";
-				var x_button = document.createElement("Button");
-				x_button.classList.add("posted_deleteMe");
-				x_button.innerText = '[x]';
-				item_and_price.appendChild(x_button);
+				
+				// create delete button
+				posted_x_button = document.createElement("Button");
+				posted_x_button.classList.add("posted_deleteMe");
+				posted_x_button.innerText = '[x]';
+				
+				item_and_price.appendChild(posted_x_button);
 			}
 			
 			else {
@@ -62,13 +90,15 @@ function draw_map(){
 			this.saved_places_markers = [];
 		}
 		
-		create_marker(place_info){
+		create_marker(place_info, del_id){
 			var marker = new google.maps.Marker({
 				map: map,
 				title: place_info.name,
 				position: place_info.location
 			 });
-			 
+			
+			// set the temporary id for deleting 
+			temp_id = del_id;
 			google.maps.event.addListener(
 				marker,
 				'click',
@@ -80,6 +110,15 @@ function draw_map(){
 			);
 				
 			this.saved_places_markers.push(marker);
+		}
+		
+		redraw(redraw_places_info){
+			this.set_view(false);
+			this.saved_places_markers = [];
+			for(i in redraw_places_info){
+				this.create_marker(redraw_places_info[i], i);
+			}
+			this.set_view(true);
 		}
 		
 		set_view(visible){
@@ -105,6 +144,7 @@ function draw_map(){
 			}
 		}
 	}
+	
 
 	// posted markers class
 	class PostedMarkers {
@@ -112,8 +152,8 @@ function draw_map(){
 			// this is an array
 			this.posted_places_markers = [];
 		}
-		
-		create_marker(place_info){
+	
+		create_marker(place_info, del_id){
 			var marker = new google.maps.Marker({
 				map: map,
 				title: place_info.name,
@@ -121,6 +161,7 @@ function draw_map(){
 			 });
 			this.posted_places_markers.push(marker);
 			
+			temp_id = del_id;
 			google.maps.event.addListener(
 				marker,
 				'click',
@@ -176,7 +217,7 @@ function draw_map(){
 	// So we do not need to use jinja here
 	uname = window.username;
 	pword = window.password;
-	
+
 	
 	function uinfo_api_request(username, password){
 		$.get('/api/dd_user/get_user_info', {username: username, password: password}, function(data, status){
@@ -198,7 +239,7 @@ function draw_map(){
 		});
 	}
 	
-	// load saved and posted functions
+	// load saved and posted functions 
 	function load_saved(saved){
 		$.post("/api/dd_maps/get_places_info_by_ids", {ids: JSON.stringify(saved)}, 
 		function(data, status){
@@ -223,7 +264,7 @@ function draw_map(){
 						
 						// here we use the saved_markers class to make a marker
 						place_data = saved_places_data[place.place_id];
-						saved_markers.create_marker(place_data);
+						saved_markers.create_marker(place_data, place.place_id);
 						saved_markers.set_view(false);
 					}
 					else{
@@ -263,7 +304,7 @@ function draw_map(){
 						
 						// here we will use the PostedMarkers class to create markers
 						place_data = posted_places_data[place.place_id];
-						posted_markers.create_marker(place_data);
+						posted_markers.create_marker(place_data, place.place_id);
 						posted_markers.set_view(false);
 					}
 					
@@ -315,7 +356,31 @@ function draw_map(){
 	// there were some class issues so i had to rewrite the jquery class event listener
 	$(document).ready(function() {
     $(document).on('click', '.posted_deleteMe', function(){
-        $(this).parent().remove();
-    });
+				// there are three steps that will need to be done here
+				// remove this saved place from the client array
+        let place_with_menu = posted_places_data[temp_id]
+				let place_menu = JSON.parse(place_with_menu.menu);
+				let place_posted = place_with_menu.posted;
+				let this_posted = $(this).parent().text().replace("[x]", "").split(":")
+				
+				// make this_posted more normal
+				this_posted[2] = this_posted[2].replace(" ", "");
+				// HERE I WILL REMOVE THE POSTED FROM THE POSTED DICT
+				
+
+				console.log();
+				$(this).parent().remove();
+		});
+		$(document).on('click', '.saved_deleteMe', function(){
+				// there are three steps that will need to be done here
+				// remove this saved place from the client array
+				delete saved_places_data[temp_id];
+				
+				// remove this from the SavedMarkers .saved_markers list and redraw markers
+				$(this).parent().text("<--REMOVED-->");
+				saved_markers.redraw(saved_places_data);
+				// tell the server to remove this
+
+		})
 	});
 }

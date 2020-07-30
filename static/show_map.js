@@ -7,11 +7,11 @@ function draw_map(){
 	var user_lat = user_loc['lat'];
 	var user_lng = user_loc['lng'];
 
-// makes variables for temporary id and all nearby places data
+	// makes variables for temporary id and all nearby places data
 	var nearby_places_data;
 	var temporary_id;
 
-// function to add to a places menu to the server
+	// function to add to a places menu to the server
 	function add_to_nearby_places_menu(place_id, item_and_price){
 			$.post("/api/dd_maps/add_to_nearby_place_menu",
 							{place_id: place_id,

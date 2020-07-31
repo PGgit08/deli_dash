@@ -24,7 +24,6 @@ function draw_map(){
 	
 	// temporary variables for deleting items
 	var temp_id;
-	var temp_delete_item;
 	
 	// function for filling up html menu
 	function fill_html_menu(nearby_place_menu, name, posted_items={}){
@@ -54,7 +53,7 @@ function draw_map(){
 			place_name.appendChild(saved_x_button);
 		}
 		
-		
+		var posted_items_keys = Object.keys(posted_items);
 		// go through menu items
 		for(var item in nearby_place_menu){
 			// here the html menu gets filled up
@@ -63,13 +62,15 @@ function draw_map(){
 			item_and_price.id = item; 
 			
 			// checks if one of the menu items is an item that the user posted
-			if(Object.keys(posted_items).includes(item, 0)){
+			if(posted_items_keys.includes(item, 0)){
 				item_and_price.style.color = "green";
 				
 				// create delete button
 				posted_x_button = document.createElement("Button");
 				posted_x_button.classList.add("posted_deleteMe");
 				posted_x_button.innerText = '[x]';
+				
+				posted_x_button.id = posted_items_keys.indexOf(item);
 				
 				item_and_price.appendChild(posted_x_button);
 			}
@@ -356,19 +357,40 @@ function draw_map(){
 	// there were some class issues so i had to rewrite the jquery class event listener
 	$(document).ready(function() {
     $(document).on('click', '.posted_deleteMe', function(){
-				// there are three steps that will need to be done here
-				// remove this saved place from the client array
-        let place_with_menu = posted_places_data[temp_id]
-				let place_menu = JSON.parse(place_with_menu.menu);
-				let place_posted = place_with_menu.posted;
-				let this_posted = $(this).parent().text().replace("[x]", "").split(":")
+				// this code over here removes the info from the client
+				let temp_posted_items = posted_places_data[temp_id].posted;
+				let temp_menu_items = JSON.parse(posted_places_data[temp_id].menu);
 				
-				// make this_posted more normal
-				this_posted[2] = this_posted[2].replace(" ", "");
-				// HERE I WILL REMOVE THE POSTED FROM THE POSTED DICT
+				let this_id = $(this).attr('id');
 				
-
-				console.log();
+				// posted item and it's price
+				let temp_posted_item = Object.keys(temp_posted_items)[this_id]; // get KEYNAME of item deleted
+				let temp_posted_item_price = temp_posted_items[temp_posted_item]; // get PRICE of item deleted 
+				
+				// form item and it's price data
+				let temp_posted_item_data = [temp_posted_item, temp_posted_item_price];
+				
+				// delete from both the menu and the posted objects
+				for(i in temp_posted_items){
+					if(i == temp_posted_item_data[0]){
+						if(temp_posted_items[i] == temp_posted_item_data[1]){
+							delete posted_places_data[temp_id].posted[i];
+						}
+					}
+				}
+				
+				for(i in temp_menu_items){
+					if(i == temp_posted_item_data[0]){
+						// menu items have a " " in them so we need to strip them
+						stripped_menu_item = temp_menu_items[i].replace(" ", "");
+						if(stripped_menu_item == temp_posted_item_data[1]){
+							delete temp_menu_items[i];
+							posted_places_data[temp_id].menu = JSON.stringify(temp_menu_items);
+						}
+					}
+				}
+				
+				// html magic
 				$(this).parent().remove();
 		});
 		$(document).on('click', '.saved_deleteMe', function(){

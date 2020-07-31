@@ -24,7 +24,7 @@ class UserHandler:
         users_db_con.add_new_user_row(row=(user_id, username, password))
         users_db_con.add_new_saved_row(row=(user_id, json.dumps(['ChIJTVvdAbj6xIkRD48qJODwotk'])))
 
-        posted_things_HARDCODED = {'ChIJTVvdAbj6xIkRD48qJODwotk': {'cheese': '1.25'}}
+        posted_things_HARDCODED = {'ChIJTVvdAbj6xIkRD48qJODwotk': {'cheese': '1.25', 'chocolate': '8.00'}}
         users_db_con.add_new_posted_row(row=(user_id, json.dumps(posted_things_HARDCODED)))
 
         users_db_con.close_connections()

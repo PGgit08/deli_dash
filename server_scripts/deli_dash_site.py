@@ -46,14 +46,16 @@ def return_nearby_places_data():
     return json.dumps(nearby_places_data)
 
 
-@site.route('/api/dd_maps/add_to_nearby_place_menu', methods=["POST"])
-def add_to_nearby_place_menu():
+@site.route('/api/dd_maps/modify_nearby_place_menu', methods=["POST"])
+def modify_nearby_place_menu():
     # parameters needed here - place_id, and item_to_add
+    modify_type = request.form["modify_type"]
     add_place = request.form["place_id"]
     add_items = request.form["items_and_prices"]
 
-    # right here an api function will be called
-    dd_maps_con.add_to_nearby_places_menus(add_place, json.loads(add_items))
+    if modify_type == "add":
+        # right here an api function will be called
+        dd_maps_con.add_to_nearby_places_menus(add_place, json.loads(add_items))
 
     return "API HAS PROCESSED REQUEST"
 
@@ -107,16 +109,31 @@ def create_user():
 
 @site.route('/api/dd_user/modify/posted', methods=['POST'])
 def add_to_posted():
+    """
+    There are three types of modifications that will be used:
+    all
+    delete
+    add
+    """
+
     # get credentials
     username = request.form['username']
     password = request.form['password']
 
+    # reset credentials
+    dd_user_con.username = username
+    dd_user_con.password = password
+
+    # REHASH
+    dd_user_con.encode_password()
+
+    # FIND USER
+    dd_user_con.find_user()
+
     modify_type = request.form['modify_type']
-    # if the type is to add, then the client will add the DICTIONARY thing to add
-    # x = {'bruh': '1'}
-    # example: modify_type = add username = bob password = abc (apis and dd_user find user, get id, retrieve their data,
-    #                                                           add to their data)
     modification = request.form['modification']
+
+    dd_user_con.change_user(modify_item="posted", modification=json.loads(modification), modify_type=modify_type)
     return "API IN PROGRESS"
 
 

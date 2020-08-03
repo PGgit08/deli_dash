@@ -13,8 +13,9 @@ function draw_map(){
 
 	// function to add to a places menu to the server
 	function add_to_nearby_places_menu(place_id, item_and_price){
-			$.post("/api/dd_maps/add_to_nearby_place_menu",
-							{place_id: place_id,
+			$.post("/api/dd_maps/modify_nearby_place_menu",
+							{modify_type: "add",
+							 place_id: place_id,
 							 items_and_prices: item_and_price
 							 },
 							 function(data, status){

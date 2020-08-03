@@ -193,8 +193,9 @@ class DdUserClass:
         else:
             return "false"
 
-    def add_to_user(self, modify_item, modify_type, modification):
+    def change_user(self, modify_item, modify_type, modification):
         # modify_item can be "posted" or "saved"
         # modify_type can be "add", "delete", "all"
         # modification is based on modify item see dd_user
-        pass
+        if modify_item == "posted":
+            self.UHandler.change_posted(user_id=self.user_id, modification=modification, modify_type=modify_type)

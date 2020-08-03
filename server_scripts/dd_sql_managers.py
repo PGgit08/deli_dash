@@ -27,7 +27,7 @@ class DdUserModel:
                                    row)
         self.places_db.commit()
 
-    def add_to_user_row(self, set, where):
+    def change_user_row(self, set, where):
         self.places_cursor.execute("""UPDATE users
                                    SET (username, password) = (?, ?)
                                    WHERE user_id = ?""",
@@ -35,7 +35,7 @@ class DdUserModel:
 
         self.places_db.commit()
 
-    def add_to_posted_row(self, set, where):
+    def change_posted_row(self, set, where):
         self.places_cursor.execute("""UPDATE posted
                                    SET posted = ?
                                    WHERE user_id = ?""",
@@ -43,7 +43,7 @@ class DdUserModel:
 
         self.places_db.commit()
 
-    def add_to_saved_row(self, set, where):
+    def change_saved_row(self, set, where):
         self.places_cursor.execute("""UPDATE saved
                                    SET saved = ?
                                    WHERE user_id = ?""",

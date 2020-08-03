@@ -88,9 +88,24 @@ class UserHandler:
         return json.dumps(response)
 
     def change_posted(self, user_id, modification, modify_type):
-        # modification {'x': {'y': 'z'}} or 'x' or "all"(all just removes everything)
-        # modify type: "add", "delete"
-        pass
+        users_db_con = dd_sql_managers.DdUserModel(file_name=self.edit_file)
+        posted = json.loads(json.loads(self.retrieve_user(user_id))['posted'])
+        # now posted should look like this {item:price}
+
+        if modify_type == "add":
+            for item in modification:
+                posted[item] = modification[item]
+
+        if modify_type == "delete":
+            for item in modification:
+                posted.pop(item)
+
+        if modify_type == "all":
+            posted = "{}"
+
+        # re-string posted like in all deli_dash modifications
+        posted = json.dumps(posted)
+        users_db_con.change_posted_row(set=posted, where=user_id)
 
     def change_saved(self, user_id, modification, modify_type):
         # modification 'x' or ['x', 'y'] or "all"(all just removes everything)

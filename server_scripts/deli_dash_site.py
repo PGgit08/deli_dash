@@ -107,7 +107,7 @@ def create_user():
     return dd_user_con.create_user()
 
 
-@site.route('/api/dd_user/modify/posted', methods=['POST'])
+@site.route('/api/dd_user/modify_data', methods=['POST'])
 def add_to_posted():
     """
     There are three types of modifications that will be used:
@@ -132,19 +132,24 @@ def add_to_posted():
 
     modify_type = request.form['modify_type']
     modification = request.form['modification']
+    modify_item = request.form['item']
 
-    dd_user_con.change_user(modify_item="posted", modification=json.loads(modification), modify_type=modify_type)
-    return "API IN PROGRESS"
-
-
-@site.route('/api/dd_user/modify/saved', methods=['POST'])
-def add_to_saved():
+    dd_user_con.change_user(modify_item=modify_item, modification=json.loads(modification), modify_type=modify_type)
     return "API IN PROGRESS"
 
 
 # ====================================== GUI =====================================
 @site.route('/')
 def send_to_login():
+    dd_user_con.username = "a"
+    dd_user_con.password = "a"
+
+    # REHASH
+    dd_user_con.encode_password()
+
+    # FIND USER
+    dd_user_con.find_user()
+    dd_user_con.change_user(modify_item="posted", modification={}, modify_type="all")
     return redirect(location='/nearby_search', code=302)
 
 

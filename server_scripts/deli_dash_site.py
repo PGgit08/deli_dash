@@ -107,49 +107,40 @@ def create_user():
     return dd_user_con.create_user()
 
 
-@site.route('/api/dd_user/modify_data', methods=['POST'])
-def add_to_posted():
+@site.route('/api/dd_user/modify_posted_data', methods=['POST'])
+def modify_user():
     """
-    There are three types of modifications that will be used:
-    all
-    delete
-    add
+    Two modification methods:
+    'add'
+    'delete'
     """
-
-    # get credentials
-    username = request.form['username']
-    password = request.form['password']
 
     # reset credentials
-    dd_user_con.username = username
-    dd_user_con.password = password
+    dd_user_con.username = request.form['username']
+    dd_user_con.password = request.form['password']
 
-    # REHASH
+    # Hash
     dd_user_con.encode_password()
 
-    # FIND USER
+    # Find User
     dd_user_con.find_user()
 
-    modify_type = request.form['modify_type']
+    modification_type = request.form['mod_type']
     modification = request.form['modification']
-    modify_item = request.form['item']
+    pid = request.form['pid']
 
-    dd_user_con.change_user(modify_item=modify_item, modification=json.loads(modification), modify_type=modify_type)
+    if modification_type == "add":
+        dd_user_con.add_to_posted(pid, modification)
+
+    if modification_type == "delete":
+        dd_user_con.delete_from_posted(pid, modification)
+
     return "API IN PROGRESS"
 
 
 # ====================================== GUI =====================================
 @site.route('/')
 def send_to_login():
-    dd_user_con.username = "a"
-    dd_user_con.password = "a"
-
-    # REHASH
-    dd_user_con.encode_password()
-
-    # FIND USER
-    dd_user_con.find_user()
-    dd_user_con.change_user(modify_item="posted", modification={}, modify_type="all")
     return redirect(location='/nearby_search', code=302)
 
 
@@ -167,6 +158,9 @@ def create_new_user():
 def user_profile():
     username = request.form['username']
     password = request.form['password']
+
+    if username == None or password == None:
+        return "Please Make Sure That You Entered Your Username And Password, to login go to localhost/login"
 
     return render_template('profile_page.html', username=username, password=password)
 

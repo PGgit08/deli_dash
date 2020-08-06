@@ -193,9 +193,17 @@ class DdUserClass:
         else:
             return "false"
 
-    def change_user(self, modify_item, modify_type, modification):
-        # modify_item can be "posted" or "saved"
-        # modify_type can be "add", "delete", "all"
-        # modification is based on modify item see dd_user
-        if modify_item == "posted":
-            self.UHandler.change_posted(user_id=self.user_id, modification=modification, modify_type=modify_type)
+    def add_to_posted(self, place_id, add_items):
+        # add_items format: {'item': 'price'}
+        old_posted = json.loads(self.UHandler.retrieve_user(self.user_id)['posted'])
+        if place_id in old_posted:
+            for item in add_items:
+                old_posted[place_id][item] = add_items[item]
+
+
+
+    def delete_from_posted(self, place_id, delete_items):
+        # same format as add_items
+        # if {'item': 'price'} is null and place_id isn't then that means we are deleting the whole thing
+        # same applies to add_to_posted
+        pass

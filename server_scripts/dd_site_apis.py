@@ -86,16 +86,11 @@ class DdMapsClass:
         return nearby_places_data
 
     # api because it creates interface with deli_dash_basic program
-    def add_to_nearby_places_menus(self, place_id, item_and_price):
+    def change_nearby_places_menus(self, place_id, item_and_price):
         places_db = dd_sql_managers.DdMapsModel(self.db_file)
-        # item and price must be a dictionary
-        # turn the place's menu into a dictionary
-        # change the places menu, by adding items, and their prices, from the item_and_price dict
-        place_menu = json.loads(self.dynamic_nearby_places_menus[place_id])
-        for item in item_and_price:
-            place_menu[item] = item_and_price[item]
-
-        self.dynamic_nearby_places_menus[place_id] = json.dumps(place_menu)
+        # reset value in VARIABLE not DATABASE
+        self.dynamic_nearby_places_menus[place_id] = json.dumps(item_and_price)
+        print(self.dynamic_nearby_places_menus[place_id])
         # now it must be checked, if the place_id is in the database, then the row of it will have it's menu updated
         # if the place_id isn't in the database, then a new row will be made with it
         # if the place has a menu in the database, then add to the row
@@ -193,17 +188,3 @@ class DdUserClass:
         else:
             return "false"
 
-    def add_to_posted(self, place_id, add_items):
-        # add_items format: {'item': 'price'}
-        old_posted = json.loads(self.UHandler.retrieve_user(self.user_id)['posted'])
-        if place_id in old_posted:
-            for item in add_items:
-                old_posted[place_id][item] = add_items[item]
-
-
-
-    def delete_from_posted(self, place_id, delete_items):
-        # same format as add_items
-        # if {'item': 'price'} is null and place_id isn't then that means we are deleting the whole thing
-        # same applies to add_to_posted
-        pass

@@ -49,14 +49,10 @@ def return_nearby_places_data():
 @site.route('/api/dd_maps/modify_nearby_place_menu', methods=["POST"])
 def modify_nearby_place_menu():
     # parameters needed here - place_id, and item_to_add
-    modify_type = request.form["modify_type"]
     add_place = request.form["place_id"]
-    add_items = request.form["items_and_prices"]
+    new_val = request.form['new_val']
 
-    if modify_type == "add":
-        # right here an api function will be called
-        dd_maps_con.add_to_nearby_places_menus(add_place, json.loads(add_items))
-
+    dd_maps_con.change_nearby_places_menus(add_place, new_val)
     return "API HAS PROCESSED REQUEST"
 
 
@@ -107,37 +103,6 @@ def create_user():
     return dd_user_con.create_user()
 
 
-@site.route('/api/dd_user/modify_posted_data', methods=['POST'])
-def modify_user():
-    """
-    Two modification methods:
-    'add'
-    'delete'
-    """
-
-    # reset credentials
-    dd_user_con.username = request.form['username']
-    dd_user_con.password = request.form['password']
-
-    # Hash
-    dd_user_con.encode_password()
-
-    # Find User
-    dd_user_con.find_user()
-
-    modification_type = request.form['mod_type']
-    modification = request.form['modification']
-    pid = request.form['pid']
-
-    if modification_type == "add":
-        dd_user_con.add_to_posted(pid, modification)
-
-    if modification_type == "delete":
-        dd_user_con.delete_from_posted(pid, modification)
-
-    return "API IN PROGRESS"
-
-
 # ====================================== GUI =====================================
 @site.route('/')
 def send_to_login():
@@ -159,8 +124,8 @@ def user_profile():
     username = request.form['username']
     password = request.form['password']
 
-    if username == None or password == None:
-        return "Please Make Sure That You Entered Your Username And Password, to login go to localhost/login"
+    if username is None or password is None:
+        return "Please Make Sure That You Entered Your Username And Password, to login <a href='/login'>Click Here</a>"
 
     return render_template('profile_page.html', username=username, password=password)
 

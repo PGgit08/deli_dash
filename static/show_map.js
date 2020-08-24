@@ -48,7 +48,18 @@ function draw_map(){
 			var IAP = added_items[i].value;
 			IAP = IAP.split(":");
 			var temp_menu = JSON.parse(nearby_places_data[temporary_id]['menu']);
-			temp_menu[IAP[0]] = IAP[1];
+			
+			
+			// before sending the new data to the server the client needs to check if this
+			// key already exists in it's dict
+			if(IAP[0] in temp_menu){
+				document.write("THE ITEM THAT YOU ENTERED ALREADY EXISTS IN THIS PLACE'S MENU");
+			}
+			
+			else{
+				temp_menu[IAP[0]] = IAP[1];
+			}
+			
 			nearby_places_data[temporary_id]['menu'] = JSON.stringify(temp_menu);
 
 			// update to server

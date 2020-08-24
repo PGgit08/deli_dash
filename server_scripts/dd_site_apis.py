@@ -90,7 +90,6 @@ class DdMapsClass:
         places_db = dd_sql_managers.DdMapsModel(self.db_file)
         # reset value in VARIABLE not DATABASE
         self.dynamic_nearby_places_menus[place_id] = json.dumps(item_and_price)
-        print(self.dynamic_nearby_places_menus[place_id])
         # now it must be checked, if the place_id is in the database, then the row of it will have it's menu updated
         # if the place_id isn't in the database, then a new row will be made with it
         # if the place has a menu in the database, then add to the row
@@ -187,4 +186,12 @@ class DdUserClass:
 
         else:
             return "false"
+
+    # no dd_user is needed in these functions, same applies to the modification functions in the previous class
+    def change_posted(self, place_id, new_val):
+        user_old_data = json.loads(self.get_user_info())
+        print(user_old_data["posted"])
+
+    def change_saved(self, new_val):
+        user_old_data = self.get_user_info()
 

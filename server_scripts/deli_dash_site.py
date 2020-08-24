@@ -50,7 +50,12 @@ def return_nearby_places_data():
 def modify_nearby_place_menu():
     # parameters needed here - place_id, and item_to_add
     add_place = request.form["place_id"]
-    new_val = request.form['new_val']
+    new_val = json.loads(request.form['new_val'])
+    print(new_val)
+
+    # this time the client just sends a new json dict to the server which the server uses as a set value
+    # client place lists: {place_id: {name, menu(json style), location}
+    # all server modifications follow this format: get new json modification item from client
 
     dd_maps_con.change_nearby_places_menus(add_place, new_val)
     return "API HAS PROCESSED REQUEST"
@@ -101,6 +106,32 @@ def create_user():
     dd_user_con.find_user()
 
     return dd_user_con.create_user()
+
+
+@site.route("/modify_user_data", methods=["GET"])
+def modify_user_data():
+    dd_user_con.username = "a"
+    dd_user_con.password = "a"
+    dd_user_con.encode_password()
+    dd_user_con.find_user()
+    dd_user_con.change_posted("A")
+    # username = request.form["username"]
+    # password = request.form["password"]
+    # modify_item = request.form["modify_item"]
+    # # for now all dd_user API's identify people by their username and password maybe i will switch to user_Id
+    #
+    # # REHASH
+    # dd_user_con.encode_password()
+    #
+    # # FIND USER
+    # dd_user_con.find_user()
+    #
+    # if modify_item == "posted":
+    #     pass
+    #
+    # if modify_item == "saved":
+    #     pass
+    return "A"
 
 
 # ====================================== GUI =====================================

@@ -12,9 +12,6 @@ class UserHandler:
     def __init__(self, edit_file):
         self.edit_file = edit_file
 
-    def add_to_user(self, username, password, setval):
-        pass
-
     def create_new_user(self, user_id, username, password):
         # here a new user will be created
         # it uses the dd_basic class
@@ -22,10 +19,13 @@ class UserHandler:
 
         # add table rows
         users_db_con.add_new_user_row(row=(user_id, username, password))
-        users_db_con.add_new_saved_row(row=(user_id, json.dumps(['ChIJTVvdAbj6xIkRD48qJODwotk'])))
 
-        posted_things_HARDCODED = {'ChIJTVvdAbj6xIkRD48qJODwotk': {'cheese': '1.25', 'chocolate': '8.00'}}
-        users_db_con.add_new_posted_row(row=(user_id, json.dumps(posted_things_HARDCODED)))
+        # saved format is a test of ids
+        saved_format = ["ChIJgUbEo8cfqokR5lP9_Wh_DaM"]
+        posted_format = {"ChIJt3dnRtVbwokRV9pqnYHmhRw": {"cheese": "1.25"}}
+
+        users_db_con.add_new_saved_row(row=(user_id, json.dumps(saved_format)))
+        users_db_con.add_new_posted_row(row=(user_id, json.dumps(posted_format)))
 
         users_db_con.close_connections()
 
@@ -56,8 +56,6 @@ class UserHandler:
 
                     if len(users) == 0:
                         prev_user_id = 0
-
-                    print(prev_user_id)
 
                 break
 

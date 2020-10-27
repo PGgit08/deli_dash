@@ -51,7 +51,6 @@ def modify_nearby_place_menu():
     # parameters needed here - place_id, and item_to_add
     add_place = request.form["place_id"]
     new_val = json.loads(request.form['new_val'])
-    print(new_val)
 
     # this time the client just sends a new json dict to the server which the server uses as a set value
     # client place lists: {place_id: {name, menu(json style), location}
@@ -69,7 +68,7 @@ def return_place_info_by_id():
     menu = dd_maps_con.get_place_info_by_id(ids)
     return json.dumps(menu)
 
-# ------------------------- DDUSER API'S ----------------------------
+# ------------------------- DDUSER APIS ----------------------------
 
 
 @site.route('/api/dd_user/get_user_info')
@@ -80,6 +79,8 @@ def return_user_info():
     # RESET CREDENTIALS
     dd_user_con.username = username
     dd_user_con.password = password
+
+    # print(dd_user_con.password)
 
     # REHASH
     dd_user_con.encode_password()
@@ -108,30 +109,16 @@ def create_user():
     return dd_user_con.create_user()
 
 
-@site.route("/modify_user_data", methods=["GET"])
-def modify_user_data():
-    dd_user_con.username = "a"
-    dd_user_con.password = "a"
-    dd_user_con.encode_password()
-    dd_user_con.find_user()
-    dd_user_con.change_posted("A")
-    # username = request.form["username"]
-    # password = request.form["password"]
-    # modify_item = request.form["modify_item"]
-    # # for now all dd_user API's identify people by their username and password maybe i will switch to user_Id
-    #
-    # # REHASH
-    # dd_user_con.encode_password()
-    #
-    # # FIND USER
-    # dd_user_con.find_user()
-    #
-    # if modify_item == "posted":
-    #     pass
-    #
-    # if modify_item == "saved":
-    #     pass
-    return "A"
+@site.route('/api/dd_user/change_posted', methods=['POST'])
+def change_posted():
+    # this is just the new item(test1)
+    item = request.args.get('item')
+
+
+@site.route('/api/dd_user/change_saved', methods=['POST'])
+def change_saved():
+    # this is just the new item(test1)
+    item = request.args.get('item')
 
 
 # ====================================== GUI =====================================

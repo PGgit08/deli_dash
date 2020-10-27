@@ -195,18 +195,7 @@ function draw_map(){
 					break;
 				}
 			}
-		}
-		
-		add(){
-			// function in making progress
-			console.log("FUNCTION IN MAKING PROGRESS");
-		}
-		
-		remove(){
-			//function in making progress
-			console.log("FUNCTION IN MAKING PROGRESS");
-		}
-		
+		}		
 	}
 	
 	
@@ -218,16 +207,19 @@ function draw_map(){
 	// So we do not need to use jinja here
 	uname = window.username;
 	pword = window.password;
-
 	
+	// make dd_user requests
 	function uinfo_api_request(username, password){
-		$.get('/api/dd_user/get_user_info', {username: username, password: password}, function(data, status){
+		$.get('/api/dd_user/get_user_info', {username: uname, password: pword},function(data, status){
 			if(status == "success"){
 				console.log("REQEST WORKED");
 				
 				user_data = JSON.parse(data);
+				
+				// saved and posted info(for later updates)
 				saved = JSON.parse(user_data.saved);
 				posted = JSON.parse(user_data.posted);
+				
 				posted_Place_ids = Object.keys(posted);
 				load_saved(saved);
 				load_posted(posted_Place_ids);
@@ -268,9 +260,9 @@ function draw_map(){
 						saved_markers.create_marker(place_data, place.place_id);
 						saved_markers.set_view(false);
 					}
-					else{
-						console.log("GOOGLE MAPS ERROR (error: XLKO)");
-					}
+					//else{
+						//console.log("GOOGLE MAPS ERROR (error: XLKO)");
+					//}
 				}
 			}
 			
@@ -354,7 +346,9 @@ function draw_map(){
 	document.getElementById("show_saved").addEventListener("click", show_saved);
 	document.getElementById("show_posted").addEventListener("click", show_posted);
 	
-	// there were some class issues so i had to rewrite the jquery class event listener
+	
+	
+	// there were some class issues so I had to rewrite the jquery class event listener
 	$(document).ready(function() {
     $(document).on('click', '.posted_deleteMe', function(){
 				// this code over here removes the info from the client
@@ -375,6 +369,8 @@ function draw_map(){
 					if(i == temp_posted_item_data[0]){
 						if(temp_posted_items[i] == temp_posted_item_data[1]){
 							delete posted_places_data[temp_id].posted[i];
+							delete posted[temp_id].i;
+							console.log(posted);
 						}
 					}
 				}
@@ -397,6 +393,8 @@ function draw_map(){
 				// there are three steps that will need to be done here
 				// remove this saved place from the client array
 				delete saved_places_data[temp_id];
+				saved.splice(saved.indexOf(temp_id));
+				console.log(saved);
 				
 				// remove this from the SavedMarkers .saved_markers list and redraw markers
 				$(this).parent().text("<--REMOVED-->");

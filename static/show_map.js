@@ -88,6 +88,7 @@ function draw_map(){
 	//draw map, and handle nearby places info
 	function handle_nearby_places(nearby_places_info){
 		nearby_places_data = JSON.parse(nearby_places_info);
+		console.log(nearby_places_data);
 
 		var map = new google.maps.Map(document.getElementById('map'), {
 			zoom: 13,

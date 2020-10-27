@@ -131,9 +131,9 @@ class DdUserClass:
     def __init__(self, username, password, file_name):
         # this calls the class we need from dd_user
         self.UHandler = dd_user.UserHandler(file_name)
+        self.fname = file_name
 
-        # theses are temporary variables that this user only has during their session
-        # the username and passwords
+        # SESSION VARIABLES
         self.username = username
         self.password = password
 
@@ -167,6 +167,12 @@ class DdUserClass:
         self.username_exists = existence[0]
         self.password_exists = existence[1]
 
+        if not self.username_exists or not self.password_exists:
+            return "false"
+
+        else:
+            return "true"
+
     def create_user(self):
         # so when the user is created
         # first we need to make sure that this user doesn't exist already
@@ -187,11 +193,16 @@ class DdUserClass:
         else:
             return "false"
 
-    # no dd_user is needed in these functions, same applies to the modification functions in the previous class
-    def change_posted(self, place_id, new_val):
-        user_old_data = json.loads(self.get_user_info())
-        print(user_old_data["posted"])
+    def change_saved(self, todo, item):
+        # there is direct connection to the dd_sql_managers lib in this func
+        if todo == "add":
+            pass
 
-    def change_saved(self, new_val):
-        user_old_data = self.get_user_info()
+        if todo == "delete":
+            # just update the line
+            users_db_con = dd_sql_managers.DdUserModel(file_name=self.fname)
+            users_db_con.change_posted_row(set=item, where=self.user_id)
+            users_db_con.close_connections()
+
+
 

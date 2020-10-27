@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4db457a-3af5-4888-8ffb-255a9a9b3f46" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/client_scripts/create_user.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_scripts/input_address.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_scripts/log_in.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_scripts/profile_page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_scripts/profile_page.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_scripts/show_map.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/databases/places.db" beforeDir="false" afterPath="$PROJECT_DIR$/databases/places.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/databases/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/databases/users.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_scripts/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server_scripts/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_scripts/dd_site_apis.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_scripts/dd_site_apis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_scripts/dd_sql_managers.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_scripts/dd_sql_managers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_scripts/dd_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_scripts/dd_user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_scripts/deli_dash_site.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_scripts/deli_dash_site.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/create_user.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/create_user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/profile_page.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/profile_page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/show_map.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/show_map.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,51 +24,51 @@
     <session id="-1038773444">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="60" />
-          <entry key="project.open.time.0" value="5" />
+          <entry key="project.closed" value="64" />
+          <entry key="project.open.time.0" value="7" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.5" value="13" />
-          <entry key="project.open.time.6" value="9" />
+          <entry key="project.open.time.6" value="11" />
           <entry key="project.open.time.7" value="11" />
           <entry key="project.open.time.8" value="6" />
           <entry key="project.open.time.9" value="8" />
-          <entry key="project.opened" value="60" />
+          <entry key="project.opened" value="64" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="4" />
-          <entry key="py" value="24" />
+          <entry key="py" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="4" />
-          <entry key="Python" value="24" />
+          <entry key="Python" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="22" />
           <entry key="html" value="6987" />
-          <entry key="py" value="21412" />
+          <entry key="py" value="21424" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="6987" />
           <entry key="PLAIN_TEXT" value="22" />
-          <entry key="Python" value="21412" />
+          <entry key="Python" value="21424" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -117,6 +118,7 @@
         <option value="$PROJECT_DIR$/dd_site_apis.py" />
         <option value="$PROJECT_DIR$/dd_user.py" />
         <option value="$PROJECT_DIR$/deli_dash_site.py" />
+        <option value="$PROJECT_DIR$/server_scripts/deli_dash_site.py" />
       </list>
     </option>
   </component>
@@ -135,7 +137,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/peter/Desktop/Deli_Dash/dd_maps.py&#10;tester&#9;FILE&#9;file://C:/Users/peter/PycharmProjects/networking/tester.py&#10;snake&#9;null&#9;null&#10;sanke&#9;null&#9;null&#10;input&#9;FILE&#9;file://C:/Users/peter/Desktop/Deli_Dash/input_address.html&#10;deli_&#9;null&#9;null&#10;d&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="dd_site_apis&#9;null&#9;null&#10;deli&#9;null&#9;null&#10;deli_&#9;RUN_CONFIGURATION&#9;deli_dash_site&#10;tester&#9;FILE&#9;file://C:/Users/peter/PycharmProjects/networking/tester.py&#10;snake&#9;null&#9;null&#10;sanke&#9;null&#9;null&#10;input&#9;FILE&#9;file://C:/Users/peter/Desktop/Deli_Dash/input_address.html&#10;d&#9;null&#9;null" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/server_scripts" />
   </component>
   <component name="RunDashboard">
@@ -150,7 +152,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.deli_dash_site">
+  <component name="RunManager">
     <configuration name="deli_dash_site" type="PythonConfigurationType" factoryName="Python">
       <module name="Deli_Dash" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -159,11 +161,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="C:\Users\peter\AppData\Local\Programs\Python\Python37\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/server_scripts" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deli_dash_site.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server_scripts/deli_dash_site.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -172,31 +174,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tester" type="PythonConfigurationType" factoryName="Python">
-      <module name="Deli_Dash" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\peter\AppData\Local\Programs\Python\Python37\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/PycharmProjects/networking" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/PycharmProjects/networking/tester.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Python.deli_dash_site" />
-      <item itemvalue="Python.tester" />
-    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -263,5 +240,29 @@
     <entry file="file://$PROJECT_DIR$/dd_maps.py" />
     <entry file="file://$PROJECT_DIR$/dd_user.py" />
     <entry file="file://$PROJECT_DIR$/dd_sql_managers.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/tokenize.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="446" selection-start-line="446" selection-end-line="446" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server_scripts/dd_site_apis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server_scripts/deli_dash_site.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding>
+            <element signature="e#64#123#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

@@ -41,6 +41,7 @@ class DdUserModel:
                                    WHERE user_id = ?""",
                                    (set, where))
 
+        print(set, where)
         self.places_db.commit()
 
     def change_saved_row(self, set, where):

@@ -5,7 +5,7 @@ document.getElementById("submit").addEventListener("click", function(){
 			$.get("/api/dd_user/create_user", {'username': username, 'password': password}, function(data, status){
 				if(status == "success"){
 					if(data == "true"){
-						window.location = "/login"
+						window.location = "/login";
 					}
 					if(data == "false"){
 						document.write("THIS ACCOUNT IS ALREADY BEING USED");
